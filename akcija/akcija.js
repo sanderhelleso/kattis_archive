@@ -7,8 +7,8 @@ process.stdin.on('end', () => processData(...bookPrices.map(book => book.split('
 
 const processData = bookPrices => {
     
-    const BOOKS_GROUPING_SIZE = 3; // value to group books by
-    bookPrices = bookPrices.slice(1); // remove 1 index (input count)
+    const BOOKS_GROUPING_SIZE = 3;
+    bookPrices = bookPrices.slice(1); 
     
     bookPrices = new Array(Math.ceil(bookPrices.length / BOOKS_GROUPING_SIZE))
                 .fill('').map(() => bookPrices.sort().reverse().splice(0, BOOKS_GROUPING_SIZE)
