@@ -1,0 +1,54 @@
+'use strict';
+
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
+
+let inputString = '';
+let currentLine = 0;
+
+process.stdin.on('data', function(inputStdin) {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', function() {
+    inputString = inputString.split('\n');
+
+    main();
+});
+
+function readLine() {
+    return inputString[currentLine++];
+}
+
+function main() {      
+    
+    const calmTimes = (dog) => {
+        const calm = [];
+        let fillCalm = false;
+        let i = 1;
+        
+        while (i <= 999) {
+            if (!fillCalm) for (let j = 0; j < dog.agg; j++) calm[i++] = false;
+            else for (let j = 0; j < dog.calm; j++) calm[i++] = true;
+            fillCalm = !fillCalm;
+        }  
+        
+        return calm;
+    };
+    
+    const behvs = readLine().split(' ').map(Number);
+    const dog1 = { agg: behvs[0], calm: behvs[1] };
+    const dog2 = { agg: behvs[2], calm: behvs[3] };
+
+    const s = readLine().split(' ').map(Number);
+    const d1 = calmTimes(dog1);
+    const d2 = calmTimes(dog2);
+    
+    for (let i = 0; i < s.length; i++) {
+        const n = s[i];
+        
+        if (!d1[n] && !d2[n]) console.log('both');
+        else if (!d1[n] || !d2[n]) console.log('one');
+        else console.log('none');
+    }
+}
