@@ -1,2 +1,2 @@
-# kattis_problems
-Kattis problems and solutions
+# kattis
+Solutions to the Kattis archive
