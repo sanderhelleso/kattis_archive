@@ -1,2 +1,2 @@
 # kattis
-Solutions to the Kattis archive
+Solutions to the Kattis archive.
