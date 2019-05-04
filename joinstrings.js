@@ -19,10 +19,6 @@ function readLine() {
     return inputString[currentLine++];
 }
 
-function makeTeam([ name, place ]) {
-    return { name, place: parseInt(place) };
-}
-
 function main() {
     
     let words = [];
